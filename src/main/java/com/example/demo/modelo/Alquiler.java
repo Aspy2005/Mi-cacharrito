@@ -3,7 +3,8 @@ package com.example.demo.modelo;
 import java.util.Date;
 
 import jakarta.persistence.*;
-
+@Entity
+@Table(name = "alquiler")
 public class Alquiler {
 
 	@Id

@@ -1,7 +1,8 @@
 package com.example.demo.modelo;
 
 import jakarta.persistence.*;
-
+@Entity
+@Table(name = "credencialesusuario")
 public class CredencialesUsuario {
 
 	
