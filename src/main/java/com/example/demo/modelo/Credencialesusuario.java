@@ -1,9 +1,10 @@
 package com.example.demo.modelo;
 
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "credencialesusuario")
-public class CredencialesUsuario {
+public class Credencialesusuario {
 
 	
 	@Id
@@ -11,7 +12,7 @@ public class CredencialesUsuario {
 	private Long idcredencial; 
 	
 	@Column(name="contraseña")
-	private Long contraseña;
+	private String contraseña;
 	
 	@OneToOne
 	@JoinColumn(name = "identificacion") 
