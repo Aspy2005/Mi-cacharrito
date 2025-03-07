@@ -27,7 +27,7 @@ public class Usuario {
 	
 	@Column(name="telefono")
 	private Date telefono;
-	
+
 	@Column(name="email")
 	private String email;
 	

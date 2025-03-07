@@ -16,7 +16,45 @@ public class Administrador {
 	private String usuario;
 	
 	@Column(name="contraseña")
-	private String contraseña; 
+	private String contraseña;
+
+	public Administrador() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Administrador(Long identificacionadmi, String usuario, String contraseña) {
+		super();
+		this.identificacionadmi = identificacionadmi;
+		this.usuario = usuario;
+		this.contraseña = contraseña;
+	}
+
+	public Long getIdentificacionadmi() {
+		return identificacionadmi;
+	}
+
+	public void setIdentificacionadmi(Long identificacionadmi) {
+		this.identificacionadmi = identificacionadmi;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	} 
+	
+	
 	
 	
 	

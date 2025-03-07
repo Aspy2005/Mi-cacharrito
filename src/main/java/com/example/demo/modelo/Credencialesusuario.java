@@ -13,8 +13,9 @@ public class Credencialesusuario {
 	
 	@Column(name="contraseña")
 	private String contraseña;
-	
+ 
 	@OneToOne
 	@JoinColumn(name = "identificacion") 
 	private Usuario usuario;
-}
+	
+} 
