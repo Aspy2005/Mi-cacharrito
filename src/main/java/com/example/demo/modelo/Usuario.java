@@ -24,7 +24,6 @@ public class Usuario {
 	@Column(name="vigencia")
 	private Date vigencia;
 	
-	
 	@Column(name="telefono")
 	private Date telefono;
 
