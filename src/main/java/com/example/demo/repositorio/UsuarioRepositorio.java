@@ -11,7 +11,7 @@ import com.example.demo.modelo.Usuario;
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
     
-    List<Usuario> findByNombre(Long nombre);
+    List<Usuario> findByNombre(String nombre);
     
     List<Usuario> findByFechalince(Date fechalince);
     
@@ -19,7 +19,7 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
     
     List<Usuario> findByVigencia(Date vigencia);
     
-    List<Usuario> findByTelefono(Date telefono);
+    List<Usuario> findByTelefono(String telefono);
     
     List<Usuario> findByEmail(String email);
 }

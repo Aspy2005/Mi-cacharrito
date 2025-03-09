@@ -13,7 +13,7 @@ public class Usuario {
 	private Long identificacion; 
 	
 	@Column(name="nombre")
-	private long nombre;
+	private String nombre;
 	
 	@Column(name="fechalince")
 	private Date fechalince;
@@ -25,7 +25,7 @@ public class Usuario {
 	private Date vigencia;
 	
 	@Column(name="telefono")
-	private Date telefono;
+	private String telefono;
 
 	@Column(name="email")
 	private String email;
@@ -34,7 +34,7 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(Long identificacion, long nombre, Date fechalince, String categoria, Date vigencia, Date telefono,
+	public Usuario(Long identificacion, String nombre, Date fechalince, String categoria, Date vigencia, String telefono,
 			String email) {
 		super();
 		this.identificacion = identificacion;
@@ -54,11 +54,11 @@ public class Usuario {
 		this.identificacion = identificacion;
 	}
 
-	public long getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(long nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
@@ -86,11 +86,11 @@ public class Usuario {
 		this.vigencia = vigencia;
 	}
 
-	public Date getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(Date telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
