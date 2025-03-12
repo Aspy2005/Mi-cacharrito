@@ -35,11 +35,9 @@ public class UsuarioControlador {
         Date fechaExpedicion = Date.valueOf(fechalince);
         Date fechaVigencia = Date.valueOf(vigencia);
 
-        // ✅ Crear usuario y guardarlo
         Usuario usu = new Usuario(identificacion, nombre, fechaExpedicion, fechaVigencia, telefono, correo);
         usuarioRepositorio.save(usu);
 
-        // ✅ Crear credencial y guardarla
         Credencialesusuario credencial = new Credencialesusuario(identificacion, contraseña, usu);
         credencialesRepositorio.save(credencial);
 

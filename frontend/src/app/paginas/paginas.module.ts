@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { RegistroComponent } from './paginas/registro/registro.component';
+import { RegistroComponent } from './registro/registro.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegistroComponent,
-    InicioSesionComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -19,6 +16,6 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }
