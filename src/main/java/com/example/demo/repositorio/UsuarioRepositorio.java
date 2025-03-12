@@ -14,9 +14,7 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
     List<Usuario> findByNombre(String nombre);
     
     List<Usuario> findByFechalince(Date fechalince);
-    
-    List<Usuario> findByCategoria(String categoria);
-    
+        
     List<Usuario> findByVigencia(Date vigencia);
     
     List<Usuario> findByTelefono(String telefono);

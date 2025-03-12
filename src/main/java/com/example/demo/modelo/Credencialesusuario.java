@@ -6,52 +6,46 @@ import jakarta.persistence.*;
 @Table(name = "credencialesusuario")
 public class Credencialesusuario {
 
-	
-	@Id
-	@Column(name="idcredencial")
-	private Long idcredencial; 
+    @Id
+    @Column(name="idcredencial")
+    private Long idcredencial; 
 
-	@Column(name="contraseña")
-	private String contraseña;
- 
-	@OneToOne
-	@JoinColumn(name = "identificacion") 
-	private Usuario usuario;
+    @Column(name="contraseña")
+    private String contraseña;
 
-	public Credencialesusuario() {
-		super();
-	}
+    @OneToOne
+    @JoinColumn(name = "identificacion") 
+    private Usuario usuario;
 
-	public Credencialesusuario(Long idcredencial, String contraseña, Usuario usuario) {
-		super();
-		this.idcredencial = idcredencial;
-		this.contraseña = contraseña;
-		this.usuario = usuario;
-	}
+    public Credencialesusuario() {}
 
-	public Long getIdcredencial() {
-		return idcredencial;
-	}
+    public Credencialesusuario(Long idcredencial, String contraseña, Usuario usuario) {
+        this.idcredencial = idcredencial;
+        this.contraseña = contraseña;
+        this.usuario = usuario;
+    }
 
-	public void setIdcredencial(Long idcredencial) {
-		this.idcredencial = idcredencial;
-	}
+    public Long getIdcredencial() {
+        return idcredencial;
+    }
 
-	public String getContraseña() {
-		return contraseña;
-	}
+    public void setIdcredencial(Long idcredencial) {
+        this.idcredencial = idcredencial;
+    }
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
+    public String getContraseña() {
+        return contraseña;
+    }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-	
-	
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

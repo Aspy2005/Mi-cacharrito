@@ -18,9 +18,6 @@ public class Usuario {
 	@Column(name="fechalince")
 	private Date fechalince;
 	
-	@Column(name="categoria")
-	private String categoria;
-	
 	@Column(name="vigencia")
 	private Date vigencia;
 	
@@ -34,13 +31,12 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(Long identificacion, String nombre, Date fechalince, String categoria, Date vigencia, String telefono,
+	public Usuario(Long identificacion, String nombre, Date fechalince,  Date vigencia, String telefono,
 			String email) {
 		super();
 		this.identificacion = identificacion;
 		this.nombre = nombre;
 		this.fechalince = fechalince;
-		this.categoria = categoria;
 		this.vigencia = vigencia;
 		this.telefono = telefono;
 		this.email = email;
@@ -68,14 +64,6 @@ public class Usuario {
 
 	public void setFechalince(Date fechalince) {
 		this.fechalince = fechalince;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
 	}
 
 	public Date getVigencia() {

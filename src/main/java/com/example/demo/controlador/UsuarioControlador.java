@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.demo.repositorio.CredencialesusuarioRepositorio;
 import com.example.demo.repositorio.UsuarioRepositorio;
 import com.example.demo.modelo.Usuario;
+import com.example.demo.modelo.Credencialesusuario;
 
 @RestController
 @RequestMapping("/ver/usuario")
@@ -15,28 +17,37 @@ import com.example.demo.modelo.Usuario;
 public class UsuarioControlador {
 
     @Autowired
-    private UsuarioRepositorio repositorio;
+    private UsuarioRepositorio usuarioRepositorio;
+
+    @Autowired
+    private CredencialesusuarioRepositorio credencialesRepositorio;
 
     @PostMapping("/guardarusuario")
     public Usuario guardarUsuario(
             @RequestParam Long identificacion,
             @RequestParam String nombre,
             @RequestParam String fechalince,
-            @RequestParam String categoria,
             @RequestParam String vigencia,
             @RequestParam String correo,
-            @RequestParam String telefono) {
+            @RequestParam String telefono,
+            @RequestParam String contraseña) {
 
         Date fechaExpedicion = Date.valueOf(fechalince);
         Date fechaVigencia = Date.valueOf(vigencia);
 
-        Usuario usu = new Usuario(identificacion, nombre, fechaExpedicion, categoria, fechaVigencia, telefono, correo);
+        // ✅ Crear usuario y guardarlo
+        Usuario usu = new Usuario(identificacion, nombre, fechaExpedicion, fechaVigencia, telefono, correo);
+        usuarioRepositorio.save(usu);
 
-        return repositorio.save(usu);
+        // ✅ Crear credencial y guardarla
+        Credencialesusuario credencial = new Credencialesusuario(identificacion, contraseña, usu);
+        credencialesRepositorio.save(credencial);
+
+        return usu;
     }
 
     @GetMapping("/lista")
     public List<Usuario> listaUsuarios() {
-        return repositorio.findAll();
+        return usuarioRepositorio.findAll();
     }
 }
