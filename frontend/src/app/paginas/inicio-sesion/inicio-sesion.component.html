@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <h2 class="text-center">Iniciar Sesión</h2>
+  <form (ngSubmit)="iniciarSesion()" class="p-4 border rounded shadow-sm bg-light">
+    
+    <div class="mb-3">
+      <label for="identificacion" class="form-label">Identificación:</label>
+      <input type="text" id="identificacion" class="form-control" [(ngModel)]="credenciales.identificacion" name="identificacion" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="contrasena" class="form-label">Contraseña:</label>
+      <input type="password" id="contrasena" class="form-control" [(ngModel)]="credenciales.contrasena" name="contrasena" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+
+    <div class="text-center mt-3">
+      <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+    </div>
+    
+    <div class="text-center mt-2">
+      <a href="/registro" class="btn btn-link">Registrarse</a>
+    </div>
+    
+  </form>
+</div>
