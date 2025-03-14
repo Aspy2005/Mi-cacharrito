@@ -7,21 +7,21 @@ import jakarta.persistence.*;
 public class Credencialesusuario {
 
     @Id
-    @Column(name="idcredencial")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Deja que la base de datos genere el ID
+    @Column(name = "idcredencial")
     private Long idcredencial; 
 
-    @Column(name="contraseña")
-    private String contraseña;
+    @Column(name = "contrasena", nullable = false)
+    private String contrasena;
 
     @OneToOne
-    @JoinColumn(name = "identificacion") 
+    @JoinColumn(name = "identificacion", referencedColumnName = "identificacion", unique = true)
     private Usuario usuario;
 
     public Credencialesusuario() {}
 
-    public Credencialesusuario(Long idcredencial, String contraseña, Usuario usuario) {
-        this.idcredencial = idcredencial;
-        this.contraseña = contraseña;
+    public Credencialesusuario(String contrasena, Usuario usuario) { 
+        this.contrasena = contrasena;
         this.usuario = usuario;
     }
 
@@ -29,16 +29,12 @@ public class Credencialesusuario {
         return idcredencial;
     }
 
-    public void setIdcredencial(Long idcredencial) {
-        this.idcredencial = idcredencial;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public Usuario getUsuario() {

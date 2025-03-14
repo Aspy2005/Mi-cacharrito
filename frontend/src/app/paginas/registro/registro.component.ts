@@ -24,13 +24,23 @@ export class RegistroComponent {
   constructor(private usuarioService: UsuarioService) {}
 
   registrarUsuario() {
+    console.log('Datos enviados:', this.usuario); // Verificar valores antes de enviar
+    
+    if (!this.usuario.identificacion || !this.usuario.nombre || !this.usuario.fechalince || 
+        !this.usuario.vigencia || !this.usuario.correo || !this.usuario.telefono || !this.usuario.contrasena) {
+      alert("Todos los campos son obligatorios");
+      return;
+    }
+  
     this.usuarioService.registrar(this.usuario).subscribe(
       respuesta => {
         alert('Usuario registrado exitosamente');
       },
       error => {
+        console.error('Error en el registro:', error);
         alert('Error al registrar usuario');
       }
     );
   }
+  
 }
