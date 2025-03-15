@@ -40,6 +40,8 @@ export class InicioSesionComponent {
       error: (error) => {
         console.error('Error en la solicitud:', error);
         this.errorMensaje = 'Credenciales incorrectas';
+        alert('Usuario o contraseña incorrectos, reintentar');
+
       }
     });
   }
