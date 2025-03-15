@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <h2>Registro de Usuario</h2>
+  <form (ngSubmit)="registrarUsuario()">
+    
+    <div class="mb-3">
+      <label for="identificacion" class="form-label">Identificación</label>
+      <input type="text" class="form-control" id="identificacion" [(ngModel)]="usuario.identificacion" name="identificacion" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo Electrónico</label>
+      <input type="email" class="form-control" id="correo" [(ngModel)]="usuario.correo" name="correo" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input type="text" class="form-control" id="telefono" [(ngModel)]="usuario.telefono" name="telefono" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="fechalince" class="form-label">Fecha Expedición Licencia</label>
+      <input type="date" class="form-control" id="fechalince" [(ngModel)]="usuario.fechalince" name="fechalince" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="vigencia" class="form-label">Vigencia Licencia</label>
+      <input type="date" class="form-control" id="vigencia" [(ngModel)]="usuario.vigencia" name="vigencia" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="contrasena" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="contrasena" [(ngModel)]="usuario.contrasena" name="contrasena" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+    <a href="/inicio-sesion" class="btn btn-link">Iniciar Sesion</a>
+  </form>
+</div>
+

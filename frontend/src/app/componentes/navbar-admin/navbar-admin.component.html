@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/dashboard-admin">Admin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin"
+        aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarAdmin">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" routerLink="/dashboard-admin">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/gestionar-usuarios">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/reportes">Reportes</a></li>
+        </ul>
+        <button class="btn btn-danger" (click)="logout()">Cerrar sesión</button>
+      </div>
+    </div>
+  </nav>
+  
