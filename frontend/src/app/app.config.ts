@@ -4,13 +4,13 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { appRoutes } from './app.routes';
-import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes), 
     provideClientHydration(),
-    importProvidersFrom(FormsModule, HttpClientModule),
+    importProvidersFrom(FormsModule, HttpClientModule),  // ✅ NavbarComponent eliminado
     provideHttpClient(withFetch())
   ]
 };

@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
+import { AuthService } from './servicios/auth.service';
+import { RouterModule } from '@angular/router';
+import { NavbarAdminComponent } from './componentes/navbar-admin/navbar-admin.component';
+import { NavbarUserComponent } from './componentes/navbar-user/navbar-user.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule],
+  imports: [CommonModule, RouterModule, NavbarAdminComponent, NavbarUserComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'micacharrito-frontend';
-  
+  constructor(public authService: AuthService) {}
 
+  esAdmin(): boolean {
+    return this.authService.esAdmin();
+  }
 }

@@ -1,1 +1,4 @@
+<app-navbar-admin *ngIf="esAdmin()"></app-navbar-admin>
+<app-navbar-user *ngIf="!esAdmin() && authService.obtenerUsuario()"></app-navbar-user>
+
 <router-outlet></router-outlet>

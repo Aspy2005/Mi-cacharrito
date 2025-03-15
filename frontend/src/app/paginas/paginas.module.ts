@@ -6,8 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistroComponent } from './registro/registro.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 
+import { NavbarComponent } from '../componentes/navbar/navbar.component';
 @NgModule({
   declarations: [
+    NavbarComponent
+    
     
   ],
   imports: [
@@ -15,6 +18,7 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
     FormsModule,
     HttpClientModule
   ],
+  exports: [NavbarComponent],
   providers: [],
   bootstrap: []
 })

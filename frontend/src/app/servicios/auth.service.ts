@@ -27,6 +27,12 @@ export class AuthService {
     } else {
       localStorage.setItem('usuario', JSON.stringify(user));
     }
+
+    if (user.esAdmin) {
+      localStorage.setItem('esAdmin', 'true');
+    } else {
+      localStorage.removeItem('esAdmin');
+    }
   }
 
   obtenerUsuario(): any {
@@ -37,5 +43,8 @@ export class AuthService {
   esAdmin(): boolean {
     const usuario = this.obtenerUsuario();
     return usuario && usuario.rol === 'admin';
+
+    return localStorage.getItem('esAdmin') === 'true';
+
   }
 }
