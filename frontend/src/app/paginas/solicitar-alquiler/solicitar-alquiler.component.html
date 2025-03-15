@@ -1,0 +1,75 @@
+<mat-horizontal-stepper #stepper [linear]="true">
+    <!-- Paso 1: Selección de categoría -->
+    <mat-step [stepControl]="categoriaForm">
+      <form [formGroup]="categoriaForm">
+        <ng-template matStepLabel>Seleccionar Categoría</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Seleccione una categoría</mat-label>
+          <mat-select formControlName="categoria" (selectionChange)="cargarVehiculos()">
+            <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+              {{ categoria }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext [disabled]="!categoriaForm.valid">Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <!-- Paso 2: Lista de vehículos disponibles -->
+    <mat-step [stepControl]="vehiculoForm">
+      <form [formGroup]="vehiculoForm">
+        <ng-template matStepLabel>Seleccionar Vehículo</ng-template>
+        <mat-selection-list formControlName="vehiculo">
+            <mat-list-option *ngFor="let vehiculo of vehiculosDisponibles" [value]="vehiculo.placa">
+              {{ vehiculo.placa }} - {{ vehiculo.color }} - {{ vehiculo.estado }}
+            </mat-list-option>
+          </mat-selection-list>
+          
+        <div>
+          <button mat-button matStepperPrevious>Anterior</button>
+          <button mat-button matStepperNext [disabled]="!vehiculoForm.valid">Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <!-- Paso 3: Selección de fechas -->
+    <mat-step [stepControl]="fechasForm">
+      <form [formGroup]="fechasForm">
+        <ng-template matStepLabel>Seleccionar Fechas</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de inicio</mat-label>
+          <input matInput [matDatepicker]="inicioPicker" formControlName="fechaInicio">
+          <mat-datepicker-toggle matIconSuffix [for]="inicioPicker"></mat-datepicker-toggle>
+          <mat-datepicker #inicioPicker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de devolución</mat-label>
+          <input matInput [matDatepicker]="finPicker" formControlName="fechaFin">
+          <mat-datepicker-toggle matIconSuffix [for]="finPicker"></mat-datepicker-toggle>
+          <mat-datepicker #finPicker></mat-datepicker>
+        </mat-form-field>
+  
+        <div>
+          <button mat-button matStepperPrevious>Anterior</button>
+          <button mat-button matStepperNext [disabled]="!fechasForm.valid">Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <!-- Paso 4: Resumen y confirmación -->
+    <mat-step>
+      <ng-template matStepLabel>Confirmación</ng-template>
+      <p><strong>Categoría:</strong> {{ categoriaForm.value.categoria }}</p>
+      <p><strong>Vehículo:</strong> {{ vehiculoForm.value.vehiculo }}</p>
+      <p><strong>Fecha de inicio:</strong> {{ fechasForm.value.fechaInicio | date }}</p>
+      <p><strong>Fecha de devolución:</strong> {{ fechasForm.value.fechaFin | date }}</p>
+      <div>
+        <button mat-button matStepperPrevious>Anterior</button>
+        <button mat-button (click)="confirmarAlquiler()">Confirmar</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  

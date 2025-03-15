@@ -16,4 +16,8 @@ export class NavbarUserComponent {
   logout() {
     this.authService.logout();
   }
+
+  irASolicitarAlquiler() {
+    this.router.navigate(['/solicitaralquiler']);
+  } 
 }
