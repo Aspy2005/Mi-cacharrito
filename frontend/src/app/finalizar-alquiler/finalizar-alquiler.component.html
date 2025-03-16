@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Lista de Alquileres</h2>
+  
+  <div *ngIf="mensaje" class="alert" role="alert">
+    {{ mensaje }}
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Tipo de Vehículo</th>
+        <th>Fecha de Finalización</th>
+        <th>Estado</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alquiler of alquileres">
+        <td>{{ alquiler.codigoalquiler }}</td>
+        <td>{{ alquiler.nombre }}</td>
+        <td>{{ alquiler.tipoVehiculo }}</td>
+        <td>{{ alquiler.fechafin }}</td>
+        <td>{{ alquiler.estado }}</td>
+        <td>
+          <button *ngIf="alquiler.estado !== 'Finalizado'" class="btn btn-success" (click)="finalizarAlquiler(alquiler.codigoalquiler)">
+            Finalizar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

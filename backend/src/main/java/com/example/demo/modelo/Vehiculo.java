@@ -66,6 +66,19 @@ public class Vehiculo {
 			this.estado = estado;
 		}
 		
+		// Actualizamos el modelo de Vehiculo para incluir una tarifa diaria
+		@Column(name = "tarifadiaria")
+		private Long tarifadiaria; // Esta es la tarifa diaria por alquiler
+
+		// Getters y Setters
+		public Long getTarifadiaria() {
+		    return tarifadiaria;
+		}
+
+		public void setTarifadiaria(Long tarifadiaria) {
+		    this.tarifadiaria = tarifadiaria;
+		}				
+		
 		
 		
 		

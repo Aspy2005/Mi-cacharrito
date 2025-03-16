@@ -16,4 +16,7 @@ export class NavbarUserComponent {
   logout() {
     this.authService.logout();
   }
+  goToFinalizarAlquiler(): void {
+    this.router.navigate(['/finalizaralquiler']); // Redirige a la página de Finalizar Alquiler
+  }
 }

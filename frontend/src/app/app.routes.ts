@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { FinalizarAlquilerComponent } from './finalizar-alquiler/finalizar-alquiler.component';
 
 export const appRoutes: Routes = [
   { path: 'inicio-sesion', loadComponent: () => import('./paginas/inicio-sesion/inicio-sesion.component').then(m => m.InicioSesionComponent) },
@@ -6,5 +7,6 @@ export const appRoutes: Routes = [
   { path: 'usuario', loadComponent: () => import('./paginas/usuario/usuario.component').then(m => m.UsuarioComponent) },
   { path: 'administrador', loadComponent: () => import('./paginas/administrador/administrador.component').then(m => m.AdminComponent) },
   { path: '', redirectTo: 'inicio-sesion', pathMatch: 'full' },
-  { path: '**', redirectTo: 'inicio-sesion' }
-];
+  { path: '**', redirectTo: 'inicio-sesion' },
+  { path: 'finalizaralquiler', loadComponent: () => import('./finalizar-alquiler/finalizar-alquiler.component').then(m => m.FinalizarAlquilerComponent) }
+]
