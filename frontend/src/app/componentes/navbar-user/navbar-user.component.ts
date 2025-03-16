@@ -19,4 +19,8 @@ export class NavbarUserComponent {
   goToFinalizarAlquiler(): void {
     this.router.navigate(['/finalizaralquiler']); // Redirige a la página de Finalizar Alquiler
   }
+
+  irASolicitarAlquiler() {
+    this.router.navigate(['/solicitaralquiler']);
+  } 
 }
