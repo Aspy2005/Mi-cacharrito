@@ -30,7 +30,7 @@ public class Alquiler {
     private Long costoadicional;
 
     @Column(name = "estado")
-    private String estado;
+    private String estado = "Pendiente por entregar";
 
     @ManyToOne
     @JoinColumn(name = "identificacion")

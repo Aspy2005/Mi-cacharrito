@@ -7,32 +7,30 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/ver/usuario/login'; // URL del backend
+  private readonly apiUrl = 'http://localhost:8080/ver/usuario/login';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   login(identificacion: number, contrasena: string): Observable<any> {
     return this.http.post(this.apiUrl, { identificacion, contrasena });
   }
-  
 
   logout(): void {
-    localStorage.removeItem('usuario'); // Eliminar sesión
+    localStorage.removeItem('usuario');
     this.router.navigate(['/inicio-sesion']);
   }
 
   guardarUsuario(user: any): void {
-    if (user.esAdmin) {
-      localStorage.setItem('usuario', JSON.stringify({ rol: 'admin' }));
-    } else {
-      localStorage.setItem('usuario', JSON.stringify(user));
-    }
+    const usuarioData = user.esAdmin
+      ? { identificacion: user.identificacion, rol: 'admin' }
+      : { identificacion: user.usuario.identificacion, nombre: user.usuario.nombre, esAdmin: false };
 
-    if (user.esAdmin) {
-      localStorage.setItem('esAdmin', 'true');
-    } else {
-      localStorage.removeItem('esAdmin');
-    }
+    localStorage.setItem('usuario', JSON.stringify(usuarioData));
+
+    user.esAdmin ? localStorage.setItem('esAdmin', 'true') : localStorage.removeItem('esAdmin');
   }
 
   obtenerUsuario(): any {
@@ -42,9 +40,6 @@ export class AuthService {
 
   esAdmin(): boolean {
     const usuario = this.obtenerUsuario();
-    return usuario && usuario.rol === 'admin';
-
-    return localStorage.getItem('esAdmin') === 'true';
-
+    return usuario?.rol === 'admin' || localStorage.getItem('esAdmin') === 'true';
   }
 }
