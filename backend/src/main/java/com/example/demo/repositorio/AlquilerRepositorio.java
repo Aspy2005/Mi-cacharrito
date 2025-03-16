@@ -11,7 +11,7 @@ import com.example.demo.modelo.Alquiler;
 @Repository
 public interface AlquilerRepositorio extends JpaRepository<Alquiler, Long> {
     
-    List<Alquiler> findByFecgainicio(Date fecgainicio);
+    List<Alquiler> findByFechainicio(Date fechainicio);
     
     List<Alquiler> findByFechafin(Date fechafin);
     
